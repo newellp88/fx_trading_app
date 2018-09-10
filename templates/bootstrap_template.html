@@ -1,0 +1,73 @@
+<!-- DOCTYPE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example Template</title>
+    <meta charset="utf-8">
+    <!-- Viewport Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Other imports -->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
+</head>
+<body>
+    <h1 class="h1 text-center">Flask Forex Dashboard</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-2">
+                <nav class="nav flex-column">
+                    <ul class="nav nav-tabs">
+                        <li class="nav item">
+                            <a class="nav-link active">EUR_USD</a>
+                        </li>
+                        <li class="nav item">
+                            <a class="nav-link">GBP_USD</a>
+                        </li>
+                        <li class="nav item">
+                            <a class="nav-link">NZD_USD</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-xl-5" id="ohlcv-chart">
+                <script>
+                    var candle_high = {{candle_high|safe}}
+                    var candle_low = {{candle_low|safe}}
+                    var candle_range = candle_low + ':' + candle_high + ':' + '0.00001';
+                    var candle_data = {{candle_data|safe}}
+                </script>
+            </div>
+            <div class="col-xl-5" id="heatmap"></div>
+        </div>
+        <div class="row">
+            <div class="col-xl-4" id="data-table"></div>
+            <div class="col-xl-4" id="summary-table"></div>
+            <div class="col-xl-4" id="lineChart">
+                <script>
+                    var c_high = {{candle_high|safe}}
+                    var c_low = {{candle_low|safe}}
+                    var c_range = c_low + ':' + c_high + ':' + '0.1';
+                    var data = {{data|safe}};
+                </script>
+            </div>
+        </div>
+    </div>
+
+
+<!-- JavaScript: placed at the end of the document so the pages load faster -->
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- Popper -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<!-- Latest compiled and minified Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="../static/js/zing_examples.js"></script>
+<script src="../static/js/zing_ohlcv.js"></script>
+</body>
+</html>
